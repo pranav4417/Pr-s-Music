@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- App Title -->
+    <TextView
+        android:id="@+id/music_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pr's Music"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+    <!-- Search Bar -->
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/music_title"
+        android:layout_marginTop="12dp"
+        android:queryHint="Search Songs"
+        android:iconifiedByDefault="false" />
+
+    <!-- Songs List Header -->
+    <TextView
+        android:id="@+id/songs_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SONGS"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_below="@id/search_view"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp" />
+
+    <!-- TextView for No Songs Available -->
+    <TextView
+        android:id="@+id/no_songs_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No Songs Available"
+        android:visibility="gone"
+        android:layout_below="@id/songs_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+    <!-- RecyclerView for Song List -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="395dp"
+        android:layout_height="540dp"
+        android:layout_below="@id/no_songs_text"
+        android:layout_marginTop="19dp"
+        android:scrollbars="vertical" />
+
+    <!-- Button to go back to the playing track -->
+
+</RelativeLayout>
