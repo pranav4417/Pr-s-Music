@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.audiofx.AudioEffect;
-import android.media.audiofx.Equalizer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.ImageView;
@@ -21,7 +20,7 @@ public class MusicPlayerActivity extends AppCompatActivity {
 
     TextView titleTv, currentTimeTv, totalTimeTv;
     SeekBar seekBar;
-    ImageView pausePlay, nextBtn, previousBtn, musicIcon, volumeButton, repeatButton, shuffleButton, equalizerButton;
+    ImageView pausePlay, nextBtn, previousBtn, musicIcon, volumeButton, repeatButton, shuffleButton, equalizerButton, infoButton;
     ArrayList<AudioModel> songsList;
     AudioModel currentSong;
     MediaPlayer mediaPlayer = MyMediaPlayer.getInstance();
@@ -48,6 +47,7 @@ public class MusicPlayerActivity extends AppCompatActivity {
         repeatButton = findViewById(R.id.repeat);
         shuffleButton = findViewById(R.id.shuffle);
         equalizerButton = findViewById(R.id.equalizer);
+        ImageView infoButton = findViewById(R.id.imageView2);  // Initialize info button
 
         titleTv.setSelected(true);
 
@@ -116,6 +116,11 @@ public class MusicPlayerActivity extends AppCompatActivity {
         equalizerButton.setOnClickListener(v -> {
             Intent intent = new Intent(AudioEffect.ACTION_DISPLAY_AUDIO_EFFECT_CONTROL_PANEL);
             startActivity(intent);
+        });
+
+        // Info Button: Show copyright information
+        infoButton.setOnClickListener(v -> {
+            Toast.makeText(MusicPlayerActivity.this, "Copyright © 2024 Pranav Kandakurthi. All rights reserved.", Toast.LENGTH_LONG).show();
         });
     }
 

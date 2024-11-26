@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp">
@@ -23,8 +24,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/music_title"
         android:layout_marginTop="12dp"
-        android:queryHint="Search Songs"
-        android:iconifiedByDefault="false" />
+        android:background="#CBB9EB"
+        android:queryHint="Search Songs" />
 
     <!-- Songs List Header -->
     <TextView
@@ -59,5 +60,16 @@
         android:scrollbars="vertical" />
 
     <!-- Button to go back to the playing track -->
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="60dp"
+        android:layout_height="51dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="-1dp"
+        android:contentDescription="Info Icon"
+        android:padding="10dp"
+        android:src="@drawable/inforr" />
 
 </RelativeLayout>

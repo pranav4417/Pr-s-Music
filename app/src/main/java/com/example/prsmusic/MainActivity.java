@@ -7,8 +7,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.core.app.ActivityCompat;
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<AudioModel> songsList = new ArrayList<>();
     ArrayList<AudioModel> filteredSongsList = new ArrayList<>();
     private static final int PERMISSION_CODE = 100;
+    ImageView infobtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,10 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycler_view);
         noMusicTextView = findViewById(R.id.no_songs_text); // Make sure this ID matches in XML
         searchView = findViewById(R.id.search_view);
+        infobtn = findViewById(R.id.imageView2); // Info button ID
+
+        // Set the click listener for the Info button
+        infobtn.setOnClickListener(v -> showCopyrightDialog());
 
         // Check for permissions
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -147,5 +154,15 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         recyclerView.getAdapter().notifyDataSetChanged(); // Refresh the RecyclerView
+    }
+
+    // Show the copyright dialog when the info button is clicked
+    private void showCopyrightDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("About Pr's Music");
+        builder.setMessage("This is app Specially Built and Managed by PRANAV KANDAKURTHI\n© 2024 Pr's Music\nAll rights reserved.");
+        builder.setPositiveButton("OK", (dialog, which) -> dialog.dismiss()); // Close dialog when OK is clicked
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }
